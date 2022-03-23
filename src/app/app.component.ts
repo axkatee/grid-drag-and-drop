@@ -43,6 +43,12 @@ export class AppComponent implements AfterViewInit {
     this.items$.next([...this.items$.getValue(), newItem]);
   }
 
+  public removeItem(): void {
+    const items = this.items$.getValue();
+    items.pop();
+    this.items$.next(items);
+  }
+
   public onDragStart(event: DragEvent): void {
     const itemElement = this.getItemElement(event);
     if (!itemElement) return;
@@ -54,8 +60,8 @@ export class AppComponent implements AfterViewInit {
     const itemElement = this.getItemElement(event);
     if (!itemElement) return;
 
-    if (this.items$.getValue().find((el) => el === -1)) {
-      this.items$.next(this.items$.getValue().filter((el) => el !== -1));
+    if (this.items$.getValue().find((item) => item === -1)) {
+      this.items$.next(this.items$.getValue().filter((item) => item !== -1));
     }
 
     this.endIndex = itemElement.index || 0;
@@ -75,12 +81,12 @@ export class AppComponent implements AfterViewInit {
       return;
     }
     this.endIndex = itemElement.index || 0;
-    newItems = newItems.map((el) => {
-      if (el === -1) {
-        el = this.startElement;
-        return el;
+    newItems = newItems.map((item) => {
+      if (item === -1) {
+        item = this.startElement;
+        return item;
       }
-      return el;
+      return item;
     });
     newItems = newItems.filter(
       (item, index) =>
