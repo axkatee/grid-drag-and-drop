@@ -1,0 +1,16 @@
+<button (click)="addItem()">add item</button>
+<div class="container">
+  <div
+    class="item-{{ i }}"
+    *ngFor="let item of items$ | async; index as i"
+    draggable="true"
+    (dragstart)="onDragStart($event)"
+    (dragend)="onDrop($event)"
+    (dragover)="onDragOver($event)"
+  >
+    <div class="placeholder" *ngIf="item === -1"></div>
+    <div class="item" *ngIf="item >= 0">
+      {{ item }}
+    </div>
+  </div>
+</div>
