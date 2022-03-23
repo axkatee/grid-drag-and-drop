@@ -26,8 +26,8 @@ export class AppComponent implements AfterViewInit {
           try {
             const data = el.getClientRects();
             return {
-              centerX: data.item(0).left + 100,
-              centerY: data.item(0).top + 100,
+              centerX: data.item(0).left + 50,
+              centerY: data.item(0).top + 50,
               index,
             };
           } catch (e) {
