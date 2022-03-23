@@ -1,3 +1,3 @@
-# angular-ivy-ghccqq
+# Drag and Drop grid with wrap content
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-ivy-ghccqq)
+[StackBlitz ⚡️](https://stackblitz.com/edit/angular-ivy-ghccqq)
